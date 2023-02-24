@@ -223,21 +223,21 @@ export default function AddArtist() {
         }, []); //  empty dependencies array
 
 
-        // Check user 
-        const checkUser = async() => {
-            if (loading) return;
-            if (!user) route.push('auth/login');
-            if (routeArtist.id) {
-                console.log('routeArtist', routeArtist)
-                setArtist({
-                    name: routeArtist.name,
-                    photoURL: routeArtist.photoURL,
-                    rate: routeArtist.rate,
-                    streams: routeArtist.streams,
-                    id: routeArtist.id
-                })
-            }
-        }
+        // // Check user 
+        // const checkUser = async() => {
+        //     if (loading) return;
+        //     if (!user) route.push('auth/login');
+        //     if (routeArtist.id) {
+        //         console.log('routeArtist', routeArtist)
+        //         setArtist({
+        //             name: routeArtist.name,
+        //             photoURL: routeArtist.photoURL,
+        //             rate: routeArtist.rate,
+        //             streams: routeArtist.streams,
+        //             id: routeArtist.id
+        //         })
+        //     }
+        // }
 
         const cancel = async() => {
             route.push('/')
@@ -248,8 +248,23 @@ export default function AddArtist() {
         // }, [user, loading]);
 
         useEffect(() => {
+            // Check user 
+            const checkUser = async() => {
+                if (loading) return;
+                if (!user) route.push('auth/login');
+                if (routeArtist.id) {
+                    console.log('routeArtist', routeArtist)
+                    setArtist({
+                        name: routeArtist.name,
+                        photoURL: routeArtist.photoURL,
+                        rate: routeArtist.rate,
+                        streams: routeArtist.streams,
+                        id: routeArtist.id
+                    })
+                }
+            }
             checkUser();
-        }, []);
+        }, [user, loading]);
 
     return(
         <div className='my-20 p-12  rounded-lg max-w-md  mx-auto'>

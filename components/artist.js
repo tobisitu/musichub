@@ -11,11 +11,11 @@ export default function Artist({children, avatar, userName, name, streams, photo
     // console.log('currentUser', currentUser.uid);
     // console.log('user', user);
     
-    // See if user is logged in
-    const getData = async() => {
-        if (loading) return;
-        if(!currentUser) return route.push('auth/login');
-    }
+    // // See if user is logged in
+    // const getData = async() => {
+    //     if (loading) return;
+    //     if(!currentUser) return route.push('auth/login');
+    // }
 
     // // Get user's data
     // useEffect(() => {
@@ -24,8 +24,14 @@ export default function Artist({children, avatar, userName, name, streams, photo
 
       // Get user's data
       useEffect(() => {
+         // See if user is logged in
+        const getData = async() => {
+            if (loading) return;
+            if(!currentUser) return route.push('auth/login');
+        }
+
         getData();
-    }, [])
+    }, [user, loading])
 
     var handleRowClick = (row) =>  {
         route.push({ pathname: `/${id}`, query: 

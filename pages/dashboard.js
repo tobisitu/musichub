@@ -15,17 +15,17 @@ export default function Dashboard(){
     const [artists,setArtists] = useState([]);
     // console.log('user', user)
 
-    // See if user is logged in
-    const getData = async() => {
-        if (loading) return;
-        if(!user) return route.push('auth/login');
-        const collectionRef = collection(db, 'artists');
-        const q = query(collectionRef, where('user', '==', user.uid), orderBy('timestamp', 'desc'));
-        const unsubscribe = onSnapshot(q, (snapshot => {
-            setArtists(snapshot.docs.map((doc) => ({...doc.data(), id:doc.id})))
-        }));
-        return unsubscribe;
-    }
+    // // See if user is logged in
+    // const getData = async() => {
+    //     if (loading) return;
+    //     if(!user) return route.push('auth/login');
+    //     const collectionRef = collection(db, 'artists');
+    //     const q = query(collectionRef, where('user', '==', user.uid), orderBy('timestamp', 'desc'));
+    //     const unsubscribe = onSnapshot(q, (snapshot => {
+    //         setArtists(snapshot.docs.map((doc) => ({...doc.data(), id:doc.id})))
+    //     }));
+    //     return unsubscribe;
+    // }
 
     // Delete Artist
     const deleteArtist = async (id) => {
@@ -44,6 +44,17 @@ export default function Dashboard(){
 
     // Get user's data
     useEffect(() => {
+         // See if user is logged in
+        const getData = async() => {
+            if (loading) return;
+            if(!user) return route.push('auth/login');
+            const collectionRef = collection(db, 'artists');
+            const q = query(collectionRef, where('user', '==', user.uid), orderBy('timestamp', 'desc'));
+            const unsubscribe = onSnapshot(q, (snapshot => {
+                setArtists(snapshot.docs.map((doc) => ({...doc.data(), id:doc.id})))
+            }));
+            return unsubscribe;
+        }
         getData();
     }, [])
  

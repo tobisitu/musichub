@@ -1,6 +1,7 @@
 import { auth, db } from "@/utils/firebase";
 import {useAuthState} from "react-firebase-hooks/auth";
-import {BsFillTrashFill, BsFillPencilFill} from 'react-icons/bs';
+import {BsFillTrashFill, BsFillPencilFill} from 'react-icons/bs'
+import {FaLongArrowAltLeft} from 'react-icons/fa'; 
 import {useRouter} from 'next/router';
 import {useEffect, useState} from "react";
 import { collection, onSnapshot, query, orderBy, where, doc, deleteDoc } from "firebase/firestore";
@@ -15,18 +16,6 @@ export default function Dashboard(){
     const [artists,setArtists] = useState([]);
     // console.log('user', user)
 
-    // // See if user is logged in
-    // const getData = async() => {
-    //     if (loading) return;
-    //     if(!user) return route.push('auth/login');
-    //     const collectionRef = collection(db, 'artists');
-    //     const q = query(collectionRef, where('user', '==', user.uid), orderBy('timestamp', 'desc'));
-    //     const unsubscribe = onSnapshot(q, (snapshot => {
-    //         setArtists(snapshot.docs.map((doc) => ({...doc.data(), id:doc.id})))
-    //     }));
-    //     return unsubscribe;
-    // }
-
     // Delete Artist
     const deleteArtist = async (id) => {
         const docRef = doc(db, 'artists', id,)
@@ -36,11 +25,6 @@ export default function Dashboard(){
             autoClose: 1500,
         });
     }
-    
-    // // Get user's data
-    // useEffect(() => {
-    //     getData();
-    // }, [user, loading])
 
     // Get user's data
     useEffect(() => {
@@ -56,14 +40,20 @@ export default function Dashboard(){
             return unsubscribe;
         }
         getData();
-    }, [])
+    }, [user, loading])
  
 
     return(
-        <div className="my-20">
+        <div className="my-4">
+            <Link href={'/'} className=" py-2 px-4 text-gray-500  text-center font-medium text-lg " >
+                <button className="uppercase text-left p-4 flex items-center gap-2 hover:text-amber-700">
+                    <FaLongArrowAltLeft className="text-xl "/>
+                    Home
+                </button>
+            </Link>
             <h1 className="font-medium text-xl text-center">Your Dashboard</h1>
             <h3 className="text-sm text-center">Manage your artists.</h3>
-            <div className="flex flex-col my-10">
+            <div className="flex flex-col my-4">
                 <div className="-my-2  sm:-mx-6 lg:-mx-8">
                     <div className="py-2  sm:px-6 lg:px-8">
                     <div className="shadow  border-b border-gray-200 sm:rounded-lg h-screen max-h-[55vh] overflow-y-auto ">
@@ -116,9 +106,6 @@ export default function Dashboard(){
                     </div>
                 </div>
             </div>
-
-            <button onClick={() => auth.signOut()}
-            className='border border-solid  bg-amber-500 border-amber-500 text-white w-full px-2 py-2 flex justify-center items-center text-center  hover:bg-red-500 hover:border-red-500 '>Sign out</button>
         </div>
     )
 }

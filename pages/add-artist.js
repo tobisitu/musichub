@@ -2,12 +2,10 @@ import {auth, db, storage} from 'utils/firebase';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {useRouter} from 'next/router';
 import {useEffect, useState, useRef} from 'react';
-import CurrencyInput from 'react-currency-input-field';
 import { addDoc, collection, doc, serverTimestamp, updateDoc, writeBatch } from 'firebase/firestore';
 import {toast} from 'react-toastify';
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import jsonData from '../roster.json';
-import { async } from '@firebase/util';
 
 export default function AddArtist() {
 
@@ -222,30 +220,9 @@ export default function AddArtist() {
             // insertJson(); 
         }, []); //  empty dependencies array
 
-
-        // // Check user 
-        // const checkUser = async() => {
-        //     if (loading) return;
-        //     if (!user) route.push('auth/login');
-        //     if (routeArtist.id) {
-        //         console.log('routeArtist', routeArtist)
-        //         setArtist({
-        //             name: routeArtist.name,
-        //             photoURL: routeArtist.photoURL,
-        //             rate: routeArtist.rate,
-        //             streams: routeArtist.streams,
-        //             id: routeArtist.id
-        //         })
-        //     }
-        // }
-
         const cancel = async() => {
             route.push('/')
         }
-
-        // useEffect(() => {
-        //     checkUser();
-        // }, [user, loading]);
 
         useEffect(() => {
             // Check user 

@@ -39,13 +39,13 @@ export default function Login(){
                 </button>
                 <h1 className="text-5xl font-gloock font-semibold text-center ">musicHUB</h1>
                 <h2 className="text-2xl font-medium text-center ">for the Artists and their Art</h2>
-                <p className=" text-sm font-medium text-center uppercase">Stats, Payment, Support and more</p>
+                <p className=" text-md font-medium text-center uppercase">Stats, Payment, Support and more</p>
             </div>
             <div className="py-4">
-                {/* <h3 className="py-4">Sign in with one of the providers</h3> */}
+                <p className=" text-md font-medium text-center p-4 ">Sign in to get started today!</p>
                 <button 
                 onClick={GoogleLogin}
-                className="text-white bg-amber-500 w-full font-semibold rounded-md flex align middle p-4 gap-2">
+                className="text-white bg-amber-500 w-full font-medium text-lg rounded-md flex align middle p-4 gap-2 hover:bg-amber-700">
                     <FcGoogle className='text-2xl'/> Sign in with Google</button>
             </div>
         </div>

@@ -6,7 +6,7 @@ import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 
 export default function Home() {
 
-  // Create a state with all the artists
+  // Create a state with all your artists 
   const [allArtists, setAllArtists] = useState([]);
   const getArtists = async () => {
     const collectionRef = collection(db, 'artists');

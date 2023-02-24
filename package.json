@@ -32,16 +32,5 @@
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-react",
-      "@babel/runtime"
-
-    ],
-    "plugins": [
-      "@babel/plugin-syntax-jsx",
-      "@babel/plugin-transform-runtime"
-    ]
   }
 }

@@ -9,7 +9,7 @@ import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import jsonData from '../roster.json';
 import { async } from '@firebase/util';
 
-export default function addArtist() {
+export default function AddArtist() {
 
     // Form states
 
@@ -243,9 +243,13 @@ export default function addArtist() {
             route.push('/')
         }
 
+        // useEffect(() => {
+        //     checkUser();
+        // }, [user, loading]);
+
         useEffect(() => {
             checkUser();
-        }, [user, loading]);
+        }, []);
 
     return(
         <div className='my-20 p-12  rounded-lg max-w-md  mx-auto'>

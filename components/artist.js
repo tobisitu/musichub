@@ -17,10 +17,15 @@ export default function Artist({children, avatar, userName, name, streams, photo
         if(!currentUser) return route.push('auth/login');
     }
 
-    // Get user's data
-    useEffect(() => {
+    // // Get user's data
+    // useEffect(() => {
+    //     getData();
+    // }, [user, loading])
+
+      // Get user's data
+      useEffect(() => {
         getData();
-    }, [user, loading])
+    }, [])
 
     var handleRowClick = (row) =>  {
         route.push({ pathname: `/${id}`, query: 

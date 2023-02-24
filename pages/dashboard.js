@@ -37,11 +37,15 @@ export default function Dashboard(){
         });
     }
     
+    // // Get user's data
+    // useEffect(() => {
+    //     getData();
+    // }, [user, loading])
+
     // Get user's data
     useEffect(() => {
         getData();
-    }, [user, loading])
-
+    }, [])
  
 
     return(

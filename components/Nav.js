@@ -31,17 +31,17 @@ export default function Nav(){
    }, [user, loading])
 
     return(
-        <nav className="sm:flex sm:justify-between  sm:items-center py-4 relative">
+        <nav className="sm:flex sm:justify-between  sm:items-center pt-4 relative">
             <Link href="/">
                 <button className="font-gloock sm:text-4xl text-amber-500 text-4xl mx-auto  grid justify-self-center " >musicHUB</button>
             </Link>
-            <button className={ ((route.pathname != '/dashboard') && (route.pathname != '/') ) ? "hidden" : ""  + 'bg-amber-500 rounded-full  w-16 h-16 flex justify-center items-center absolute sm:-bottom-20  -bottom-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-default shadow-xl'}>
+            {/* <button className={ ((route.pathname != '/dashboard') && (route.pathname != '/') ) ? "hidden" : ""  + 'bg-amber-500 rounded-full  w-16 h-16 flex justify-center items-center absolute sm:-bottom-20  -bottom-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-default shadow-xl'}>
                 <GiMusicalNotes className='text-4xl text-orange-700 animate-spin-slow '/>
-            </button>
+            </button> */}
             <ul className="sm:flex sm:items-center gap-10 mt-2 mx-auto grid justify-self-center sm:justify-self-end sm:mx-0">
                 {user && (
                     <div className="flex flex-row mx-auto items-center sm:gap-6 gap-2 mb-5">
-                        <Link href={'/add-artist'} className=" py-2 px-4 text-sm border-solid border-2 border-amber-500 text-white hover:bg-amber-500 text-center" >
+                        <Link href={'/add-artist'} className=" py-2 px-4 text-sm border-solid border-2 border-amber-500 bg-amber-500 text-white hover:bg-amber-700 text-center" >
                             <button className="flex items-center mx-auto gap-2">
                                 <FiUserPlus/>
                                 Add Artist
@@ -50,8 +50,8 @@ export default function Nav(){
 
                     <Menu as="div" className="relative inline-block text-left">
                         <div className="py-1 text-right">
-                            <Menu.Button className="border-solid border-2  border-amber-500 text-white hover:bg-amber-500  rounded-full  hover:grayscale mx-auto  sm:mb-0 ">
-                                <img src= {user.photoURL} alt= {'photo of ' + user.displayName} className='rounded-full w-12 cursor-pointer'></img>
+                            <Menu.Button className="border-solid border-2  border-green-300 text-white hover:bg-amber-500  rounded-full  hover:grayscale mx-auto  sm:mb-0 ">
+                                <img src= {user? user.photoURL : ''} alt= {'photo of ' + user.displayName} className='rounded-full w-12 h-12 cursor-pointer'></img>
                             </Menu.Button>
 
                         </div>
@@ -65,7 +65,7 @@ export default function Nav(){
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                         >
-                            <Menu.Items className="absolute sm:right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <Menu.Items className="absolute  z-10 mt-2 sm:w-56  origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="py-1">
                                 <Menu.Item>
                                 {({ active }) => (

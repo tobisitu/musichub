@@ -10,7 +10,7 @@ export default function Home() {
   const [allArtists, setAllArtists] = useState([]);
   const getArtists = async () => {
     const collectionRef = collection(db, 'artists');
-    const q = query(collectionRef, orderBy('timestamp', 'desc'));
+    const q = query(collectionRef, orderBy('payout', 'desc'));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       setAllArtists(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})));
     });
@@ -31,10 +31,10 @@ export default function Home() {
       </Head>
 
       <div className='my-20 text-lg font-medium'>
-        <h1 className='font-medium text-xl text-center '>Stay Connected</h1>
+        <h1 className='font-semibold text-xl text-center  uppercase '>Stay Connected</h1>
         <h3 className="text-sm text-center ">See how musicHUB Artists around the world are doing.</h3>
 
-        <div className="flex flex-col my-10">
+        <div className="flex flex-col my-10 ">
           <div className="-my-2  sm:-mx-6 lg:-mx-8">
             <div className="py-2  sm:px-6 lg:px-8">
               <div className="shadow  border-b border-gray-200 sm:rounded-lg h-screen max-h-[60vh] overflow-y-auto">
@@ -57,7 +57,25 @@ export default function Home() {
                         scope="col"
                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
-                        Streams
+                        Total Streams
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Total Pay
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Monthly Avg
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Payout Complete
                       </th>
                       <th
                         scope="col"

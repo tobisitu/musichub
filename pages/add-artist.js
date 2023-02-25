@@ -15,6 +15,9 @@ export default function AddArtist() {
     // console.log('image', image)
     
     const uploadImage =  () => {
+        artist.payout = (artist.rate * artist.streams);
+        artist.completed = false;
+
         const storageRef = ref(storage, `images/${image.name}`);
         const uploadTask = uploadBytesResumable(storageRef, image);
         uploadTask.on(
@@ -41,7 +44,9 @@ export default function AddArtist() {
                             name:'',
                             photoURL: '',
                             rate: '',
-                            streams: ''
+                            streams: '',
+                            payout: '',
+                            completed: ''
                         });
                         toast.success('Artist has been successfully updated 😉', {
                             position: toast.POSITION.TOP_CENTER,
@@ -63,7 +68,9 @@ export default function AddArtist() {
                                 name:'',
                                 photoURL: '',
                                 rate: '',
-                                streams: ''
+                                streams: '',
+                                payout: '',
+                                completed: ''
                             });
                             toast.success('Artist has been successfully updated 😉', {
                                 position: toast.POSITION.TOP_CENTER,
@@ -94,7 +101,9 @@ export default function AddArtist() {
                             name:'',
                             photoURL: '',
                             rate: '',
-                            streams: ''
+                            streams: '',
+                            payout: '',
+                            completed: ''
                         });
                         toast.success('Artist has been successfully added 😉', {
                             position: toast.POSITION.TOP_CENTER,
@@ -114,14 +123,16 @@ export default function AddArtist() {
                                 timestamp: serverTimestamp(),
                                 user: user.uid,
                                 avatar: user.photoURL,
-                                userName: user.displayName,
+                                userName: user.displayName
                             })
                             
                             setArtist({
                                 name:'',
                                 photoURL: '',
                                 rate: '',
-                                streams: ''
+                                streams: '',
+                                payout: '',
+                                completed: ''
                             });
                             toast.success('Artist has been successfully added 😉', {
                                 position: toast.POSITION.TOP_CENTER,
@@ -141,7 +152,9 @@ export default function AddArtist() {
             name:'',
             photoURL: '',
             rate: '',
-            streams: ''
+            streams: '',
+            payout: '',
+            completed: ''
         })
 
         const [user, loading] = useAuthState(auth);
@@ -198,14 +211,16 @@ export default function AddArtist() {
                     artist.name = element.artist,
                     artist.photoURL = 'https://firebasestorage.googleapis.com/v0/b/musichub-c78a0.appspot.com/o/images%2Fanonymous-avatar-icon-25.jpg?alt=media&token=4d4e1526-96de-400c-92b5-3653827b3897',
                     artist.rate = element.rate,
-                    artist.streams = element.streams
+                    artist.streams = element.streams,
+                    artist.payout = element.rate * element.streams
+                    artist.completed = false
 
                     addDoc(collectionRef2, {
                         ...artist,
                         timestamp: serverTimestamp(),
                         user: user.uid,
                         avatar: user.photoURL,
-                        userName: user.displayName,
+                        userName: user.displayName
                     })
                 });
               } catch (err) {
@@ -236,7 +251,9 @@ export default function AddArtist() {
                         photoURL: routeArtist.photoURL,
                         rate: routeArtist.rate,
                         streams: routeArtist.streams,
-                        id: routeArtist.id
+                        id: routeArtist.id,
+                        payout: routeArtist.rate * routeArtist.streams,
+                        completed: routeArtist.completed
                     })
                 }
             }

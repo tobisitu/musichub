@@ -33,7 +33,7 @@ export default function Dashboard(){
             if (loading) return;
             if(!user) return route.push('auth/login');
             const collectionRef = collection(db, 'artists');
-            const q = query(collectionRef, where('user', '==', user.uid), orderBy('timestamp', 'desc'));
+            const q = query(collectionRef, where('user', '==', user.uid), orderBy('payout', 'desc'));
             const unsubscribe = onSnapshot(q, (snapshot => {
                 setArtists(snapshot.docs.map((doc) => ({...doc.data(), id:doc.id})))
             }));
@@ -44,14 +44,14 @@ export default function Dashboard(){
  
 
     return(
-        <div className="my-4">
+        <div className="">
             <Link href={'/'} className=" py-2 px-4 text-gray-500  text-center font-medium text-lg " >
-                <button className="uppercase text-left p-4 flex items-center gap-2 hover:text-amber-700">
+                <button className="uppercase text-left  flex items-center gap-2 hover:text-amber-700">
                     <FaLongArrowAltLeft className="text-xl "/>
                     Home
                 </button>
             </Link>
-            <h1 className="font-medium text-xl text-center">Your Dashboard</h1>
+            <h1 className="font-semibold text-xl text-center uppercase">Your Dashboard</h1>
             <h3 className="text-sm text-center">Manage your artists.</h3>
             <div className="flex flex-col my-4">
                 <div className="-my-2  sm:-mx-6 lg:-mx-8">
@@ -76,10 +76,28 @@ export default function Dashboard(){
                                 scope="col"
                                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                             >
-                                Streams
+                                Total Streams
+                            </th>
+                            <th
+                                scope="col"
+                                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            >
+                                Total Pay
+                            </th>
+                            <th
+                                scope="col"
+                                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            >
+                                Monthly Avg
+                            </th>
+                            <th
+                                scope="col"
+                                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                            >
+                                Payout Complete
                             </th>
                             <th scope="col" className="relative px-2 py-3">
-                                <span className="sr-only">More</span>
+                                <span className="sr-only">More Actions</span>
                             </th>
                             </tr>
                         </thead>

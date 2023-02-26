@@ -1,38 +1,115 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Instructions to run musicHUB
 
-## Getting Started
+Open [https://musichub-tobisitu.vercel.app/](https://musichub-tobisitu.vercel.app/) with your browser.
+
+## Instructions to run musicHUB code from github locally
 
 First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+$ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+_______
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## ABOUT musicHUB
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Welcome to musicHUB -an application created for users to view & manage artists' royalties!
+Users log in with google to get started.
+They can add artists to the application's db. They can also make edits to or delete artists they created. 
+NB: Users can view all artists but only make changes to the artists they added to the db.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## STACK
 
-## Learn More
+This web application was created using:
+- React
+- Firebase
+- NextJS
+- Vercel
+- Tailwind CSS
+- NodeJS
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## PAGES & COMPONENTS
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Navigation:
+- musicHUB logo that redirects to home page on click 
 
-## Deploy on Vercel
+- "Add Artist" button that redirects to page /add-artist which allows user to create a new artist in the db.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- User image button which opens a dropdown with navigation button options to 
+    /add-artist,
+    /dashboard and 
+    sign out
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+___________
+
+Home Page:
+- View all the data of all the artists using musicHUB in a table. 
+* All table data sorted in descending order by payout amount
+
+    Data available to view:
+        - Artist's Name
+        - Rate
+        - Total streams
+        - Total pay from April 2006 till date
+        - Average Monthly pay
+        - Payout complete
+        - Artist's Manager -user that added the artist
+
+- Check/uncheck the 'payout complete' checkbox to indicate an artist has beeen completely paid or not - only editable for artists that you manage
+
+- Click a row to view thee artist's data on a separate page
+___________
+
+Add Artist Page:
+- Create a new artist by filling out the form with: 
+    - Artist's Name -required
+    - Rate -required
+    - Total streams -required
+    - A photo of the artist -optional
+___________
+
+Dashboard Page:
+- View all the data of the artists you manage in a table. 
+* All table data sorted in descending order by payout amount
+
+    Data available to view:
+        - Artist's Name
+        - Rate
+        - Total streams
+        - Total pay from April 2006 till date
+        - Average Monthly pay
+        - Payout complete
+        - Artist's Manager -user that added the artist
+
+- Check/uncheck the 'payout complete' checkbox to indicate an artist has beeen completely paid or not - only editable for artists that you manage
+
+- Click a row to view the artist's data on a separate page
+
+- Click on the 'pencil' button to edit the artist
+
+- Click on the 'trashcan' button to delete the artist
+__________
+
+Artist Page:
+- View all the data of the artists you selected
+
+    Data available to view:
+        - Artist's Photo 
+        - Artist's Name
+        - Artist's Manager (user that added the artist)
+        - Payment Status
+        - Rate
+        - Total streams
+        - Total pay from April 2006 tiil date
+        - Average Monthly pay
+        
+
+- Check/uncheck the 'payout complete' checkbox to indicate an artist has beeen completely paid
+
+- Click on the 'pencil' button to edit the artist - only available for artists that you manage
+
+- Click on the 'trashcan' button to delete the artist - only available for artists that you manage
+
+

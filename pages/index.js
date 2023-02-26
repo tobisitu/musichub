@@ -30,7 +30,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='my-20 text-lg font-medium'>
+      <div className='my-8 text-lg font-medium'>
         <h1 className='font-semibold text-xl text-center  uppercase '>Stay Connected</h1>
         <h3 className="text-sm text-center ">See how musicHUB Artists around the world are doing.</h3>
 

@@ -30,11 +30,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='my-8 text-lg font-medium'>
+      <div className='my-6 text-lg font-medium'>
         <h1 className='font-semibold text-xl text-center  uppercase '>Stay Connected</h1>
         <h3 className="text-sm text-center ">See how musicHUB Artists around the world are doing.</h3>
 
-        <div className="flex flex-col my-10 ">
+        <div className="flex flex-col my-6 ">
           <div className="-my-2  sm:-mx-6 lg:-mx-8">
             <div className="py-2  sm:px-6 lg:px-8">
               <div className="shadow  border-b border-gray-200 sm:rounded-lg h-screen max-h-[60vh] overflow-y-auto">

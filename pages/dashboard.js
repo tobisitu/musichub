@@ -53,7 +53,7 @@ export default function Dashboard(){
             </Link>
             <h1 className="font-semibold text-xl text-center uppercase">Your Dashboard</h1>
             <h3 className="text-sm text-center">Manage your artists.</h3>
-            <div className="flex flex-col mt-12">
+            <div className="flex flex-col mt-6">
                 <div className="-my-2  sm:-mx-6 lg:-mx-8">
                     <div className="py-2  sm:px-6 lg:px-8">
                     <div className="shadow  border-b border-gray-200 sm:rounded-lg h-screen max-h-[55vh] overflow-y-auto ">

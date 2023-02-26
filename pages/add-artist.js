@@ -261,43 +261,53 @@ export default function AddArtist() {
         }, [user, loading]);
 
     return(
-        <div className='my-20 p-12  rounded-lg max-w-md  mx-auto'>
-            <form onSubmit={submitArtist}>
-                <h1 className="text-2xl text-center font-bold">
-                    {artist.hasOwnProperty('id') ? "Edit your Artist" : "Add a new Artist"}
-                </h1>
-                <div className='py-2 flex flex-col item-center gap-4'> 
-                    <label className="text-md font-medium py-2">
-                        Name:
+        <div className='sm:mt-20 mt-8 p-4 rounded-sm max-w-md  mx-auto'>
+            <form onSubmit={submitArtist} className="">
+                <div className='mb-6'>
+                    <h1 className="text-xl text-center font-bold uppercase">
+                        {artist.hasOwnProperty('id') ? "Edit your Artist" : "Add a new Artist"}
+                    </h1>
+                    <h1 className="text-sm text-center font-base ">
+                        {artist.hasOwnProperty('id') ? "Update your Artist's details " : "Fill out the form with your Artist's details"}
+                    </h1>
+                </div>
+
+                <div className='py-2 flex flex-col item-center gap-5 text-gray-600'> 
+                    <label className="text-sm font-md ">
+                        Name *
                         <input type="text" name="name" 
                         value={artist.name}
                         onChange= {(e) => setArtist({...artist, name: e.target.value })}
-                        className="p-2 text-md border border-blue-lighter rounded-lg w-full" />
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-700 focus:ring-orange-700 sm:text-sm" />
                     </label>
-                     <label>
-                        Photo:
+                     <label className="text-sm font-md ">
+                        Photo
                         <input type="file" name="artistPhotoURL"
                         onChange= {(e) => {setImage(e.target.files[0])}}
-                        className="p-2 text-md border border-blue-lighter rounded-lg w-full" />
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-700 focus:ring-orange-700 sm:text-sm p-2 bg-white" />
                     </label>
-                    <label>
-                        Payment Rate ($ per stream):
+
+                    <label className="text-sm font-md">
+                        Payment Rate ($ per stream) *
                         <input type="number" name="rate" placeholder={0.25}
                         value={artist.rate}
                         onChange= {(e) => setArtist({...artist, rate: e.target.value })}
-                        className="p-2 text-md border border-blue-lighter rounded-lg w-full" />
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-700 focus:ring-orange-700 sm:text-sm" />
                     </label>
-                    <label>
-                        Number of Streams:
+                    <label className="text-sm font-md">
+                        Number of Streams *
                         <input type="number" name="streams"
                         value={artist.streams}
                         onChange= {(e) => setArtist({...artist, streams: e.target.value })}
-                        className="p-2 text-md border border-blue-lighter rounded-lg w-full" />
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-700 focus:ring-orange-700 sm:text-sm" />
                     </label>
                 </div>
-                <button type='submit' className= "w-full mt-5 p-2 my-2 rounded-md text-md font-semibold  bg-teal-500 text-white hover:bg-teal-700 ">Submit</button>
+                <p class="text-xs text-red-500 text-right ">Required fields are marked with an asterisk <abbr title="Required field">*</abbr></p>
+                <div className='mt-8 flex gap-2 text-sm '>
+                    <button type='submit' className= "w-full p-2 rounded-sm   bg-green-500 text-white hover:bg-green-700 ">Submit</button>
 
-                <button type='button' onClick={() => cancel()} className= "w-full mt-1 p-2 my-2 rounded-md text-md font-semibold  bg-red-500 text-white hover:bg-red-700 ">Cancel</button>
+                    <button type='button' onClick={() => cancel()} className= "w-full p-2 rounded-sm bg-red-600 text-white hover:bg-red-800 ">Cancel</button>
+                </div>
             </form>
         </div>
     )

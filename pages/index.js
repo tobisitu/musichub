@@ -38,48 +38,48 @@ export default function Home() {
           <div className="-my-2  sm:-mx-6 lg:-mx-8">
             <div className="py-2  sm:px-6 lg:px-8">
               <div className="shadow  border-b border-gray-200 sm:rounded-lg h-screen max-h-[60vh] overflow-y-auto">
-                <table className="min-w-full divide-y divide-gray-200 ">
+                <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-sky-100 sticky top-0">
                     <tr>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="px-6 sm:py-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
                         Artist
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="px-6 sm:py-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
                         Rate
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="px-6 sm:py-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
                         Total Streams
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="px-6 sm:py-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
                         Total Pay
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="px-6 sm:py-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
                         Monthly Avg
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="px-6 sm:py-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
                         Payout Complete
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        className="px-6 sm:py-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
                         Managed by
                       </th>

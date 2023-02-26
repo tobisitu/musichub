@@ -101,7 +101,7 @@ export default function Artist({children, avatar, userName, name, streams, photo
     return(
         <>
             <tr  className=" hover:cursor-pointer hover:bg-amber-50 hover:shadow-md "  >
-               <td className="px-6 py-4 whitespace-nowrap" onClick={()=> handleRowClick(id)}>
+               <td className="px-6 sm:py-3 py-2 whitespace-nowrap" onClick={()=> handleRowClick(id)}>
                     <div className="flex items-center">
                     <div className="flex-shrink-0 h-10 w-10">
                         <img className="h-10 w-10 border-solid border-2  border-orange-700 text-white  rounded-full " src={photoURL} alt={'photo of '+ name} />
@@ -111,23 +111,23 @@ export default function Artist({children, avatar, userName, name, streams, photo
                     </div>
                     </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500" onClick={()=> handleRowClick(id)}>
+                <td className="px-6 sm:py-3 py-2 whitespace-nowrap text-sm text-gray-500" onClick={()=> handleRowClick(id)}>
                     {rate}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"  onClick={()=> handleRowClick(id)}>
+                <td className="px-6 sm:py-3 py-2 whitespace-nowrap text-sm text-gray-500"  onClick={()=> handleRowClick(id)}>
                     {separateNumber(streams)}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500" onClick={()=> handleRowClick(id)}>
+                <td className="px-6 sm:py-3 py-2 whitespace-nowrap text-sm text-gray-500" onClick={()=> handleRowClick(id)}>
                     ${separateNumber(getTotalPay())}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500" onClick={()=> handleRowClick(id)}>
+                <td className="px-6 sm:py-3 py-2 whitespace-nowrap text-sm text-gray-500" onClick={()=> handleRowClick(id)}>
                     ${separateNumber(getMonthlyPay())}
                    {/* { getMonthlyPay()} */}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 sm:py-3 py-2 whitespace-nowrap text-sm text-gray-500">
                     <input type='checkbox' disabled={currentUser.uid != user } checked={isComplete} onChange={() => handleCheckBox()}/>
                 </td>
-                <td className={(children? 'hidden ':'')+'px-6 py-4 whitespace-nowrap'} onClick={()=> handleRowClick(id)}>
+                <td className={(children? 'hidden ':'')+'px-6 sm:py-3 py-2 whitespace-nowrap'} onClick={()=> handleRowClick(id)}>
                     <span
                     className={( currentUser && currentUser.uid == user ? 'px-2 bg-green-100 text-green-800':'px-2 bg-yellow-100 text-yellow-800') +' inline-flex text-xs leading-5 font-semibold rounded-full '}
                     >

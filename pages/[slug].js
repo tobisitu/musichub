@@ -37,16 +37,15 @@ export default function Details() {
 
     var getMonthlyPay = () =>  {  
         let today = new Date();
-        let startDate = new Date('april 2006');
+        let startDate = new Date('april 1 2006');
         var diff = Math.floor(today.getTime() - startDate.getTime());
         var day = 1000 * 60 * 60 * 24;
         var days = Math.floor(diff/day);
         var months = Math.floor(days/31);
-        // console.log( months, 'months')
-
-        var total = getTotalPay();
-        // console.log(separateNumber(total/months))
-        return ((total/months).toFixed(2))
+        var total = getTotalPay() 
+        var monthly = total/months
+        // console.log('monthly',monthly)
+        return ((monthly).toFixed(2))
 
     }
 
@@ -81,22 +80,22 @@ export default function Details() {
     
     return(
        <div className="m-4">
-            <div className= ' flex justify-between gap-2 mt-6 mb-8'>
+            <div className= 'flex justify-between gap-2 mt-6 mb-4'>
                 <Link href={'/'} className=" text-gray-500 text-center font-medium " >
-                    <button className="uppercase text-left px-4 py-2 flex items-center gap-2 hover:text-amber-700">
+                    <button className="uppercase text-left px-2 py-2 flex items-center gap-2 hover:text-amber-700">
                         <FaLongArrowAltLeft className="text-xl "/>
                         Home
                     </button>
                 </Link>
 
                 
-                <div className= 'flex flex-row gap-4'>
-                <button className = {((currentUser) && (currentUser?.uid != routeData.user) ? 'hidden ' : '' ) + 'border border-none  text-amber-500 border-amber-500 rounded-lg px-4  py-1 flex justify-center items-center text-center hover:bg-amber-500 hover:text-white gap-2'} onClick={() => editArtist()}>
+                <div className= 'flex flex-row gap-2'>
+                <button className = {((currentUser) && (currentUser?.uid != routeData.user) ? 'hidden ' : '' ) + 'border border-none  text-amber-500 border-amber-500 rounded-lg px-2  py-1 flex justify-center items-center text-center hover:bg-amber-500 hover:text-white gap-2'} onClick={() => editArtist()}>
                     <BsFillPencilFill/>
                     {/* Edit */}
                 </button>
 
-                <button className= {((currentUser) && (currentUser?.uid != routeData.user) ? 'hidden ' : '' ) +'border border-none  text-red-500 border-red-500 rounded-lg px-4 py-1 flex justify-center items-center text-center  hover:bg-red-500 hover:text-white gap-2'}
+                <button className= {((currentUser) && (currentUser?.uid != routeData.user) ? 'hidden ' : '' ) +'border border-none  text-red-500 border-red-500 rounded-lg px-2 py-1 flex justify-center items-center text-center  hover:bg-red-500 hover:text-white gap-2'}
                     onClick={() => deleteArtist(routeData.id)}>
                         <BsFillTrashFill/>
                     {/* Delete */}
@@ -105,10 +104,10 @@ export default function Details() {
             </div>
 
             <div className='  rounded-lg max-w-2xl mx-auto  grid justify-self-center  h-screen max-h-[70vh] mb-8 '>
-            <div className=" text-center justify-center items-center  flex flex-col place-content-center gap-4">
-                <img src={routeData.photoURL} alt={'photo of '+ routeData.name} className=" h-40 w-40 border-solid border-2  border-orange-700 text-white  rounded-full mb-4 "/>
+            <div className=" text-center justify-center items-center  flex flex-col place-content-center gap-2">
+                <img src={routeData.photoURL} alt={'photo of '+ routeData.name} className=" h-44 w-44 border-solid border-2  border-orange-700 text-white  rounded-full mb-2 "/>
                 <div className="flex flex-col gap-2">
-                    <h1 className=" font-gloock text-5xl text-orange-700 mb-2">{routeData.name}</h1>
+                    <h1 className=" font-gloock text-4xl text-orange-700 mb-2">{routeData.name}</h1>
                     <p className={((currentUser) && (currentUser?.uid == routeData.user) ? ' bg-green-100 text-green-800  ' : ' bg-yellow-100 text-yellow-800 ') + "text-sm px-4 rounded-full"}>
                         <span className=" font-bold">
                             {routeData.userName} &nbsp;
@@ -124,7 +123,7 @@ export default function Details() {
                 </div>
             </div>
             
-            <div className="mt-8 flex flex-col justify-center items-center ">
+            <div className="mt-6 flex flex-col justify-center items-center ">
                 <h1 className="text-xl font-medium uppercase text-gray-500 mb-2">Performance</h1>
                 <p>April 2006 - today</p>
             </div>

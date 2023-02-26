@@ -48,7 +48,7 @@ export default function Nav(){
                             </button>
                         </Link>
 
-                    <Menu as="div" className="relative inline-block text-left">
+                    <Menu as="div" className="sm:relative inline-block text-left">
                         <div className="py-1 text-right">
                             <Menu.Button className="border-solid border-2  border-green-300 text-white hover:bg-amber-500  rounded-full  hover:grayscale mx-auto  sm:mb-0 ">
                                 <img src= {user? user.photoURL : ''} alt= {'photo of ' + user.displayName} className='rounded-full w-12 h-12 cursor-pointer'></img>
@@ -65,7 +65,7 @@ export default function Nav(){
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                         >
-                            <Menu.Items className="absolute  z-10 mt-2 sm:w-56  origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <Menu.Items className="absolute m-auto right-0  w-screen max-w-[90vw] z-10 mt-2 sm:w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="py-1">
                                 <Menu.Item>
                                 {({ active }) => (
